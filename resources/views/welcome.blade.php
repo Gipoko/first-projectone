@@ -19,7 +19,7 @@
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 
-                        @if (Route::has('login'))
+                        <!-- @if (Route::has('login'))
                 
                     @auth
                         <li class="nav-item"><a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a></li>
@@ -31,7 +31,7 @@
                         @endif
                     @endauth
                 
-            @endif
+            @endif -->
 
                     </ul>
                 </div>
