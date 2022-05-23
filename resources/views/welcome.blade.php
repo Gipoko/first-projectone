@@ -399,11 +399,11 @@
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Client:</strong>
-                                            Threads
+                                            Paras-Enrile Dental Clinic
                                         </li>
                                         <li>
                                             <strong>Category:</strong>
-                                            Illustration
+                                            Thesis Project
                                         </li>
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
