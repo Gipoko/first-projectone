@@ -98,8 +98,8 @@
                                 <img class="img-fluid" src="{{asset ('template/assets/img/portfolio/1.jpg') }}" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">Dental Clinic</div>
+                                <div class="portfolio-caption-subheading text-muted">Patient information System With Appointment Scheduling</div>
                             </div>
                         </div>
                     </div>
@@ -392,10 +392,10 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <h2 class="text-uppercase">Patient Information System with Appointment Scheduling</h2>
+                                    <p class="item-intro text-muted">College Thesis</p>
                                     <img class="img-fluid d-block mx-auto" src="{{asset ('template/assets/img/portfolio/1.jpg')}}" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <p>The system was made in native php. it was not deployed and use but i keep it in my portfolio para may laman haha.</p>
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Client:</strong>
