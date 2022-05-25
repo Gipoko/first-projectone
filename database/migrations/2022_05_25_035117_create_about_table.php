@@ -14,7 +14,7 @@ class CreateAboutTable extends Migration
     public function up()
     {
         Schema::create('about', function (Blueprint $table) {
-            $table->integer('about_id', 30)->primary();
+            $table->string('about_id', 30)->primary();
             $table->date('about_date')->nullable(false);
             $table->string('about_title')->nullable(false);
             $table->text('about_description')->nullable(false);
