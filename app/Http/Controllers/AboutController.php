@@ -47,7 +47,7 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         About::updateOrCreate(['about_id' => $request->about_id],
-                ['about_date' => $request->about_date,
+                ['about_head' => $request->about_head,
                  'about_title' => $request->about_title,
                 'about_description' => $request->about_description]);        
    

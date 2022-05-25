@@ -20,7 +20,7 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Date</th>
+                <th>Head Title</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th width="300px">Action</th>
@@ -43,9 +43,9 @@
 
 
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Date</label>
+                        <label for="name" class="col-sm-2 control-label">Head Title</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="about_date" name="about_date" placeholder="Enter Title" value="" maxlength="50" required="">
+                            <input type="text" class="form-control" id="about_head" name="about_head" placeholder="Enter Title" value="" maxlength="50" required="">
                         </div>
                     </div>
 
@@ -88,7 +88,7 @@
         ajax: "{{ route('abouts.index') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'about_date', name: 'about_date'},
+            {data: 'about_head', name: 'about_head'},
             {data: 'about_title', name: 'about_title'},
             {data: 'about_description', name: 'about_description'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -108,7 +108,7 @@
           $('#saveBtn').val("edit-about");
           $('#ajaxModel').modal('show');
           $('#about_id').val(data.about_id);
-          $('#about_date').val(data.about_date);
+          $('#about_head').val(data.about_head);
           $('#about_title').val(data.about_title);
           $('#about_description').val(data.about_description);
       })
