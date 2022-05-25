@@ -27,8 +27,8 @@ class DashboardController extends Controller
    {
     return view('admin/postcreate');
    }
-   public function book()
+   public function about()
    {
-    return view('admin/book');
+    return view('admin/about');
    }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BooksController;
+use App\Http\Controllers\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +30,9 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
 // for blogwriters
 Route::group(['middleware' => ['auth', 'role:admin']], function() { 
     Route::get('/dashboard/postcreate', 'App\Http\Controllers\DashboardController@postcreate')->name('dashboard.postcreate');
-    Route::get('/dashboard/book', 'App\Http\Controllers\DashboardController@book')->name('dashboard.book');
+    Route::get('/dashboard/about', 'App\Http\Controllers\DashboardController@about')->name('dashboard.about');
     
-    Route::resource('books', BooksController::class);
+    Route::resource('abouts', AboutController::class);
 });
 
 

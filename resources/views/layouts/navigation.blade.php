@@ -30,7 +30,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.book')" :active="request()->routeIs('dashboard.book')">
+                    <x-nav-link :href="route('dashboard.about')" :active="request()->routeIs('dashboard.about')">
                         {{ __('About') }}
                     </x-nav-link>
                 </div>

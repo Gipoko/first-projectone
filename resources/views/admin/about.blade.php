@@ -15,13 +15,14 @@
              
 <div class="container">
     <h1></h1>
-    <a class="btn btn-success" href="javascript:void(0)" id="createNewBook"> Create New Book</a>
+    <a class="btn btn-success" href="javascript:void(0)" id="createNewAbout"> Create New About</a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Vision</th>
-                <th>Mission</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Description</th>
                 <th width="300px">Action</th>
             </tr>
         </thead>
@@ -34,22 +35,31 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-vision" id="modelHeading"></h4>
+                <h4 class="modal-title" id="modelHeading"></h4>
             </div>
             <div class="modal-body">
-                <form id="bookForm" name="bookForm" class="form-horizontal">
-                   <input type="hidden" name="book_id" id="book_id">
+                <form id="aboutForm" name="aboutForm" class="form-horizontal">
+                   <input type="text" name="about_id" id="about_id">
+
+
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Vision</label>
+                        <label for="name" class="col-sm-2 control-label">Date</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="vision" name="vision" placeholder="Enter Vision" value="" maxlength="50" required="">
+                            <input type="text" class="form-control" id="about_date" name="about_date" placeholder="Enter Title" value="" maxlength="50" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="about_title" name="about_title" placeholder="Enter Title" value="" maxlength="50" required="">
                         </div>
                     </div>
      
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Details</label>
+                        <label class="col-sm-2 control-label">Description</label>
                         <div class="col-sm-12">
-                            <textarea id="mission" name="mission" required="" placeholder="Enter Mission" class="form-control"></textarea>
+                            <textarea id="about_description" name="about_description" required="" placeholder="Enter Description" class="form-control"></textarea>
                         </div>
                     </div>
       
@@ -75,30 +85,32 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('books.index') }}",
+        ajax: "{{ route('abouts.index') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'vision', name: 'vision'},
-            {data: 'mission', name: 'mission'},
+            {data: 'about_date', name: 'about_date'},
+            {data: 'about_title', name: 'about_title'},
+            {data: 'about_description', name: 'about_description'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
-    $('#createNewBook').click(function () {
-        $('#saveBtn').val("create-book");
-        $('#book_id').val('');
-        $('#bookForm').trigger("reset");
-        $('#modelHeading').html("Create New Book");
+    $('#createNewAbout').click(function () {
+        $('#saveBtn').val("create-about");
+        $('#about_id').val('');
+        $('#aboutForm').trigger("reset");
+        $('#modelHeading').html("Create New About");
         $('#ajaxModel').modal('show');
     });
-    $('body').on('click', '.editBook', function () {
-      var book_id = $(this).data('id');
-      $.get("{{ route('books.index') }}" +'/' + book_id +'/edit', function (data) {
-          $('#modelHeading').html("Edit Book");
-          $('#saveBtn').val("edit-book");
+    $('body').on('click', '.editAbout', function () {
+      var about_id = $(this).data('about_id');
+      $.get("{{ route('abouts.index') }}" +'/' + about_id +'/edit', function (data) {
+          $('#modelHeading').html("Edit About");
+          $('#saveBtn').val("edit-about");
           $('#ajaxModel').modal('show');
-          $('#book_id').val(data.id);
-          $('#vision').val(data.vision);
-          $('#mission').val(data.mission);
+          $('#about_id').val(data.about_id);
+          $('#about_date').val(data.about_date);
+          $('#about_title').val(data.about_title);
+          $('#about_description').val(data.about_description);
       })
    });
     $('#saveBtn').click(function (e) {
@@ -106,13 +118,13 @@
         $(this).html('Save');
     
         $.ajax({
-          data: $('#bookForm').serialize(),
-          url: "{{ route('books.store') }}",
+          data: $('#aboutForm').serialize(),
+          url: "{{ route('abouts.store') }}",
           type: "POST",
           dataType: 'json',
           success: function (data) {
      
-              $('#bookForm').trigger("reset");
+              $('#aboutForm').trigger("reset");
               $('#ajaxModel').modal('hide');
               table.draw();
          
@@ -124,14 +136,14 @@
       });
     });
     
-    $('body').on('click', '.deleteBook', function () {
+    $('body').on('click', '.deleteAbout', function () {
      
-        var book_id = $(this).data("id");
+        var about_id = $(this).data("about_id");
         confirm("Are You sure want to delete !");
       
         $.ajax({
             type: "DELETE",
-            url: "{{ route('books.store') }}"+'/'+book_id,
+            url: "{{ route('abouts.store') }}"+'/'+about_id,
             success: function (data) {
                 table.draw();
             },

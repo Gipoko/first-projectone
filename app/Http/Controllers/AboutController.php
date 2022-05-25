@@ -2,12 +2,12 @@
          
 namespace App\Http\Controllers;
           
-use App\Models\Book;
+use App\Models\About;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
         
-class BooksController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,17 +17,17 @@ class BooksController extends Controller
     public function index(Request $request)
     {
    
-        $books = Book::latest()->get();
+        $abouts = About::latest()->get();
         
         if ($request->ajax()) {
-            $data = Book::latest()->get();
+            $data = About::latest()->get();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
    
-                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBook">Edit</a>';
+                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-about_id="'.$row->about_id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editAbout">Edit</a>';
    
-                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteBook">Delete</a>';
+                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-about_id="'.$row->about_id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteAbout">Delete</a>';
     
                             return $btn;
                     })
@@ -35,7 +35,7 @@ class BooksController extends Controller
                     ->make(true);
         }
       
-        return view('book',compact('books'));
+        return view('about',compact('abouts'));
     }
      
     /**
@@ -46,33 +46,35 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        Book::updateOrCreate(['id' => $request->book_id],
-                ['title' => $request->title, 'author' => $request->author]);        
+        About::updateOrCreate(['about_id' => $request->about_id],
+                ['about_date' => $request->about_date,
+                 'about_title' => $request->about_title,
+                'about_description' => $request->about_description]);        
    
-        return response()->json(['success'=>'Book saved successfully.']);
+        return response()->json(['success'=>'About saved successfully.']);
     }
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Book  $book
+     * @param  \App\About  $about
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $book = Book::find($id);
-        return response()->json($book);
+        $about = About::find($id);
+        return response()->json($about);
     }
   
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Book  $book
+     * @param  \App\About  $about
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Book::find($id)->delete();
+        About::find($id)->delete();
      
-        return response()->json(['success'=>'Book deleted successfully.']);
+        return response()->json(['success'=>'About deleted successfully.']);
     }
 }
