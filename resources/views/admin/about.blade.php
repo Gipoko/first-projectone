@@ -30,7 +30,7 @@
         </tbody>
     </table>
 </div>
-   
+   <p id="test"></p>
 <div class="modal fade" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -72,11 +72,9 @@
         </div>
     </div>
 </div>
-    
-
-   
 <script type="text/javascript">
-  $(function () {
+$(function () {
+    
       $.ajaxSetup({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
