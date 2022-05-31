@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,12 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [WelcomeController::class, 'index']);
+Route::get('get-about-list', [WelcomeController::class, 'AboutList']);
 //auth route for both 
 Route::group(['middleware' => ['auth']], function() { 
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');

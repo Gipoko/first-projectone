@@ -181,27 +181,31 @@
                 </div>
             </div>
         </section>
-        <!-- About-->
-        <section class="page-section" id="about">
+        
+   <!-- About--> <p id="test"></p>
+    <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
                     <h3 class="section-subheading text-muted">About the Author</h3>
                 </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ asset ('template/assets/img/about/1.jpg')}}" alt="..." /></div>
+                <ul class="timeline" id="UlID">
+               @foreach ($about as $item)
+                    <li id="class" >
+                        <div  class="timeline-image"><img class="rounded-circle img-fluid" src="{{ asset ('template/assets/img/about/1.jpg')}}" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2016 - 2020</h4>
-                                <h4 class="subheading">Cagayan State University - Carig Campus</h4>
+                               <input type="text" class="xx" value="{{ $item->about_id }}">
+                                <h4>{{ $item->about_head }}</h4>
+                                <h4 class="subheading">{{ $item->about_title }}</h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">
-                                Studied Bachelor of Science in Information Technology
+                            {{ $item->about_description }}
                             </p></div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
+                    @endforeach
+                    <!-- <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset ('template/assets/img/about/2.jpg')}}" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -210,17 +214,8 @@
                             </div>
                             <div class="timeline-body"><p class="text-muted">Management Information System Trainee</p></div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset ('template/assets/img/about/3.jpg')}}" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>September 2021 </h4>
-                                <h4 class="subheading">Abana Computer Services</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Hired and currently working as a web developer!</p></div>
-                        </div>
-                    </li>
+                    </li> -->
+                   
       
                     
                     <li class="timeline-inverted">
@@ -592,6 +587,8 @@
                 </div>
             </div>
         </div>
-        
+       
     </body>
+ 
     @include('template/footer')
+    

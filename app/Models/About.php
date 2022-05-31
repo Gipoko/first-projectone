@@ -11,4 +11,6 @@ class About extends Model
     ];
     protected $table = 'about';
     protected $primaryKey = 'about_id';
+
+    
 }

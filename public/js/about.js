@@ -5,7 +5,7 @@ $(function () {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
     });
-    var table = $('.data-table').DataTable({
+    var table = $('#AboutTable').DataTable({
         processing: true,
         serverSide: true,
         ajax: "{{ route('abouts.index') }}",

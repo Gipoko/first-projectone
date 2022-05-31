@@ -16,7 +16,7 @@
 <div class="container">
     <h1></h1>
     <a class="btn btn-success" href="javascript:void(0)" id="createNewAbout"> Create New About</a>
-    <table class="table table-bordered data-table">
+    <table id="AboutTable" class="table table-bordered data-table">
         <thead>
             <tr>
                 <th>No</th>
@@ -80,7 +80,7 @@ $(function () {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
     });
-    var table = $('.data-table').DataTable({
+    var table = $('#AboutTable').DataTable({
         processing: true,
         serverSide: true,
         ajax: "{{ route('abouts.index') }}",
