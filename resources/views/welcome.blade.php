@@ -195,7 +195,6 @@
                         <div  class="timeline-image"><img class="rounded-circle img-fluid" src="{{ asset ('template/assets/img/about/1.jpg')}}" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                               <input type="text" class="xx" value="{{ $item->about_id }}">
                                 <h4>{{ $item->about_head }}</h4>
                                 <h4 class="subheading">{{ $item->about_title }}</h4>
                             </div>
@@ -205,19 +204,7 @@
                         </div>
                     </li>
                     @endforeach
-                    <!-- <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset ('template/assets/img/about/2.jpg')}}" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>February 03 - March 13,2020 </h4>
-                                <h4 class="subheading">On The Job Training</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Management Information System Trainee</p></div>
-                        </div>
-                    </li> -->
-                   
-      
-                    
+              
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
