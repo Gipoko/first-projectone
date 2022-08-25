@@ -1,41 +1,49 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-<title>{{ config('app.name', 'Laravel') }}</title>
-<!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-<!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-       
+<!doctype html>
+<html lang="en">
 
-<!-- about -->
-@include('script.script')
-<!-- about -->
+    
+<!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Mar 2021 16:24:43 GMT -->
+<head>
+
+        <meta charset="utf-8" name="csrf-token" content="{{ csrf_token() }}" />
+        <title>Dashboard | Skote - Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+       
+        @include('script.headlink')
 
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-        
-            @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+    <body data-sidebar="dark">
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+        @include('layouts.topbar')
+        @include('layouts.navigation')
+
+            
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
-        </div>
-        
-    </body>
 
-   </html>
+        </div>
+        <!-- END layout-wrapper -->
+
+       
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+   
+       
+    </body>
+    @include('script.script')
+
+<!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Mar 2021 16:24:43 GMT -->
+</html>

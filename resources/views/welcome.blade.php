@@ -192,7 +192,7 @@
                 <ul class="timeline" id="UlID">
                @foreach ($about as $item)
                     <li id="class" >
-                        <div  class="timeline-image"><img class="rounded-circle img-fluid" src="{{ asset ('template/assets/img/about/1.jpg')}}" alt="..." /></div>
+                        <div  class="timeline-image"><img class="rounded-circle img-fluid" src="{{ asset ('uploads/about')}}/{{ $item->about_image }}" style="width:100%;height:100%;" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>{{ $item->about_head }}</h4>

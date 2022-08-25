@@ -31,7 +31,15 @@ class AboutController extends Controller
     
                             return $btn;
                     })
-                    ->rawColumns(['action'])
+                    ->addColumn('img', function($row){
+   
+                     
+                        $img = '<img class="rounded-circle avatar-md" alt="200x200" src="/uploads/about/'.$row->about_image.'" data-holder-rendered="true">';
+                     
+                        return $img;
+                 })
+   
+                    ->rawColumns(['img'],['action'])
                     ->make(true);
         }
       
@@ -46,11 +54,18 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasFile('about_image')){
+            $file = $request->file('about_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/about',$filename);
+
         About::updateOrCreate(['about_id' => $request->about_id],
-                ['about_head' => $request->about_head,
-                 'about_title' => $request->about_title,
+                ['about_image'=>$filename,
+                'about_head' => $request->about_head,
+                'about_title' => $request->about_title,
                 'about_description' => $request->about_description]);        
-   
+        }
         return response()->json(['success'=>'About saved successfully.']);
     }
     /**

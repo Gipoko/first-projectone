@@ -15,7 +15,7 @@ class CreateAboutTable extends Migration
     {
         Schema::create('about', function (Blueprint $table) {
             $table->increments('about_id');
-            $table->string('image')->nullable();
+            $table->string('about_image')->nullable();
             $table->string('about_head')->nullable(false);
             $table->string('about_title')->nullable(false);
             $table->text('about_description')->nullable(false);

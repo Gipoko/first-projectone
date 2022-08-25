@@ -8,9 +8,12 @@ $(function () {
     var table = $('#AboutTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('abouts.index') }}",
+        ajax: {
+            url:"/abouts",
+         },
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'img', name: 'img'},
             {data: 'about_head', name: 'about_head'},
             {data: 'about_title', name: 'about_title'},
             {data: 'about_description', name: 'about_description'},
@@ -26,7 +29,7 @@ $(function () {
     });
     $('body').on('click', '.editAbout', function () {
       var about_id = $(this).data('about_id');
-      $.get("{{ route('abouts.index') }}" +'/' + about_id +'/edit', function (data) {
+      $.get("/abouts" +'/' + about_id +'/edit', function (data) {
           $('#modelHeading').html("Edit About");
           $('#saveBtn').val("edit-about");
           $('#ajaxModel').modal('show');
@@ -37,14 +40,18 @@ $(function () {
       })
    });
     $('#saveBtn').click(function (e) {
+        var form =$('#aboutForm')[0];
+        var formData = new FormData(form);
         e.preventDefault();
         $(this).html('Save');
     
         $.ajax({
-          data: $('#aboutForm').serialize(),
-          url: "{{ route('abouts.store') }}",
+          data:formData,
+          url: "/abouts",
           type: "POST",
           dataType: 'json',
+          processData: false,
+          contentType: false,
           success: function (data) {
      
               $('#aboutForm').trigger("reset");
@@ -66,7 +73,7 @@ $(function () {
       
         $.ajax({
             type: "DELETE",
-            url: "{{ route('abouts.store') }}"+'/'+about_id,
+            url: "/abouts"+'/'+about_id,
             success: function (data) {
                 table.draw();
             },
