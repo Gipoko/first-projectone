@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
 // for blogwriters
 Route::group(['middleware' => ['auth', 'role:admin']], function() { 
     Route::get('/dashboard/postcreate', 'App\Http\Controllers\DashboardController@postcreate')->name('dashboard.postcreate');
-    Route::get('/dashboard/about', 'App\Http\Controllers\DashboardController@about')->name('dashboard.about');
+    Route::get('/setup/about', 'App\Http\Controllers\DashboardController@about')->name('about');
     
     Route::resource('abouts', AboutController::class);
 });

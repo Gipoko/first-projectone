@@ -31,13 +31,13 @@
             <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="bx bx-layout"></i>
-                    <span key="t-layouts">Human Resources</span>
+                    <span key="t-layouts">System</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="true">
                     <li>
-                        <a href="javascript: void(0);" class="has-arrow" key="t-vertical">Employee</a>
+                        <a href="javascript: void(0);" class="has-arrow" key="t-vertical">Setup</a>
                         <ul class="sub-menu" aria-expanded="true">
-                            <li><a href="{{route('dashboard.about')}}" key="t-light-sidebar">About</a></li>
+                            <li><a href="{{route('about')}}" key="t-light-sidebar">About</a></li>
                             <!-- <li><a href="layouts-compact-sidebar.html" key="t-compact-sidebar">Compact Sidebar</a></li>
                             <li><a href="layouts-icon-sidebar.html" key="t-icon-sidebar">Icon Sidebar</a></li>
                             <li><a href="layouts-boxed.html" key="t-boxed-width">Boxed Width</a></li>

@@ -43,7 +43,7 @@ class AboutController extends Controller
                     ->make(true);
         }
       
-        return view('about',compact('abouts'));
+        return view('setup/about',compact('abouts'));
     }
      
     /**
