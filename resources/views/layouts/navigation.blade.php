@@ -62,11 +62,11 @@
             </li>
             <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="bx bx-list-ul"></i>
-                    <span key="t-tables">Tables</span>
+                    <i class="bx bxs-user "></i>
+                    <span key="t-tables">User Management</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="tables-basic.html" key="t-basic-tables">Basic Tables</a></li>
+                    <li><a href="tables-basic.html" key="t-basic-tables">Users</a></li>
                     <li><a href="tables-datatable.html" key="t-data-tables">Data Tables</a></li>
                     <li><a href="tables-responsive.html" key="t-responsive-table">Responsive Table</a></li>
                     <li><a href="tables-editable.html" key="t-editable-table">Editable Table</a></li>
